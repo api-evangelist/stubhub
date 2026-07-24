@@ -1,0 +1,700 @@
+openapi: 3.0.3
+info:
+  title: StubHub Account Addressess E-Tickets API
+  version: v2
+  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
+  contact:
+    name: StubHub API Support
+    email: api.support@stubhub.com
+    url: https://developer.stubhub.com/
+  x-media-type: application/hal+json
+servers:
+- url: https://api.stubhub.net
+  description: Production
+- url: https://sandbox.api.stubhub.net
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: E-Tickets
+paths:
+  /sellerlistings/{listingId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadListingETicket
+      summary: Upload e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: ETicket_GetListingETicketUploads
+      summary: List e-ticket uploads for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /events/{eventId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadEventETicket
+      summary: Upload e-tickets for an event
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: ETicket_GetEventETicketUploads
+      summary: List e-ticket uploads for an event
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings/{listingId}/etickets:
+    get:
+      operationId: ETicket_GetListingETickets
+      summary: List e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+    patch:
+      operationId: ETicket_MarkBackETickets
+      summary: Mark-back e-tickets from a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    post:
+      operationId: ETicket_PostListingETickets
+      summary: Upload and save e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/etickets/{ETicketId}:
+    delete:
+      operationId: ETicket_DeleteListingETicket
+      summary: Delete e-ticket from a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ETicketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /events/{eventId}/etickets/{eticketId}:
+    delete:
+      operationId: ETicket_DeleteEventETicket
+      summary: Delete e-ticket from an event
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/markedbacketickets/{markedBackETicketId}/document:
+    get:
+      operationId: ETicketDocument_GetMarkedBackETicketDocument
+      summary: Get marked back e-ticket file for seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: markedBackETicketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sales/{saleId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadSaleETicket
+      summary: Upload e-tickets or proof of transfer for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+    get:
+      operationId: ETicket_GetSaleETicketUploads
+      summary: List e-ticket uploads for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /sales/{saleId}/etickets:
+    get:
+      operationId: ETicket_GetSaleETickets
+      summary: List e-tickets for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+    post:
+      operationId: ETicket_PostSaleETickets
+      summary: Upload and save e-tickets for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /sales/{saleId}/etickets/{eticketId}:
+    delete:
+      operationId: ETicket_DeleteSaleETicket
+      summary: Delete e-ticket from a sale
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /etickets/{eticketId}/thumbnail:
+    get:
+      operationId: ETicketDocument_GetETicketThumbnail
+      summary: Get e-ticket thumbnail file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /eticketuploads/{eticketUploadId}/document:
+    get:
+      operationId: ETicketDocument_GetETicketUploadDocument
+      summary: Get e-ticket upload file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eticketUploadId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /etickets/{eticketId}/document:
+    get:
+      operationId: ETicketDocument_GetETicketDocument
+      summary: Get e-ticket file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. All API requests must be authenticated.
+      flows:
+        clientCredentials:
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+        authorizationCode:
+          authorizationUrl: https://account.stubhub.com/authorize
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          refreshUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+            read:payment: Read-only access to the user's payments.
+            read:sales: Read access to the user's sales.
+            write:sales: Write access to the user's sales (confirm and fulfill sales).
+            read:sellerlistings: Read access to the user's listings.
+            write:sellerlistings: Write access to the user's listings (create and update listings).
+            read:webhooks: Read access to the user's webhooks.
+            write:webhooks: Write access to the user's webhooks.
+            write:requestedevents: Write access to the user's requested events.

@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: StubHub Account Addressess PaymentMethods API
+  version: v2
+  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
+  contact:
+    name: StubHub API Support
+    email: api.support@stubhub.com
+    url: https://developer.stubhub.com/
+  x-media-type: application/hal+json
+servers:
+- url: https://api.stubhub.net
+  description: Production
+- url: https://sandbox.api.stubhub.net
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: PaymentMethods
+paths:
+  /paymentmethods:
+    get:
+      operationId: PaymentMethods_GetPaymentMethods
+      summary: List payment methods
+      tags:
+      - PaymentMethods
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - read:payment
+  /paymentmethods/{paymentMethodId}:
+    get:
+      operationId: PaymentMethods_GetPaymentMethod
+      summary: Get a payment method
+      tags:
+      - PaymentMethods
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: paymentMethodId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:payment
+  /listings/{listingId}/paymentmethods:
+    put:
+      operationId: PaymentMethods_GetListingPaymentMethods
+      summary: List payment methods for a listing
+      tags:
+      - PaymentMethods
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:payment
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. All API requests must be authenticated.
+      flows:
+        clientCredentials:
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+        authorizationCode:
+          authorizationUrl: https://account.stubhub.com/authorize
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          refreshUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+            read:payment: Read-only access to the user's payments.
+            read:sales: Read access to the user's sales.
+            write:sales: Write access to the user's sales (confirm and fulfill sales).
+            read:sellerlistings: Read access to the user's listings.
+            write:sellerlistings: Write access to the user's listings (create and update listings).
+            read:webhooks: Read access to the user's webhooks.
+            write:webhooks: Write access to the user's webhooks.
+            write:requestedevents: Write access to the user's requested events.

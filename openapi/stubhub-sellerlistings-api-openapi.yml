@@ -1,0 +1,480 @@
+openapi: 3.0.3
+info:
+  title: StubHub Account Addressess SellerListings API
+  version: v2
+  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
+  contact:
+    name: StubHub API Support
+    email: api.support@stubhub.com
+    url: https://developer.stubhub.com/
+  x-media-type: application/hal+json
+servers:
+- url: https://api.stubhub.net
+  description: Production
+- url: https://sandbox.api.stubhub.net
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: SellerListings
+paths:
+  /sellerlistings/{listingId}:
+    patch:
+      operationId: SellerListings_Patch
+      summary: Update a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: SellerListings_Get
+      summary: Get a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+    delete:
+      operationId: SellerListings_DeleteListing
+      summary: Delete a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '204':
+          description: Deleted.
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/recentupdates:
+    get:
+      operationId: SellerListings_GetSellerListingsRecentUpdates
+      summary: List seller listings (recent updates)
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings:
+    get:
+      operationId: SellerListings_GetSellerListings
+      summary: List seller listings
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - read:sellerlistings
+    post:
+      operationId: SellerListings_CreateListingForRequestedEvent
+      summary: Create a seller listing for a requested event
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - write:requestedevents
+  /events/{eventId}/sellerlistings:
+    post:
+      operationId: SellerListings_CreateListing
+      summary: Create a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /externalsellerlistings/{externallistingId}:
+    get:
+      operationId: SellerListings_GetByExternalListingId
+      summary: Get a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: externallistingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /externalsellerlistings/{externalId}:
+    patch:
+      operationId: SellerListings_PatchByExternalListingId
+      summary: Update a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: externalId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    delete:
+      operationId: SellerListings_DeleteListingByExternalListingId
+      summary: Delete a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '204':
+          description: Deleted.
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: externalId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /events/{eventId}/sellerlistingpreview:
+    post:
+      operationId: SellerListings_CreateListingPreview
+      summary: Preview a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/updatepreview:
+    post:
+      operationId: SellerListings_UpdateListingPreview
+      summary: Preview a seller listing update
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistingpreview:
+    post:
+      operationId: SellerListings_CreateListingPreviewForRequestedEvent
+      summary: Preview a seller listing for a requested event
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400':
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401':
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403':
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed, or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500':
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - write:requestedevents
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. All API requests must be authenticated.
+      flows:
+        clientCredentials:
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+        authorizationCode:
+          authorizationUrl: https://account.stubhub.com/authorize
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          refreshUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+            read:payment: Read-only access to the user's payments.
+            read:sales: Read access to the user's sales.
+            write:sales: Write access to the user's sales (confirm and fulfill sales).
+            read:sellerlistings: Read access to the user's listings.
+            write:sellerlistings: Write access to the user's listings (create and update listings).
+            read:webhooks: Read access to the user's webhooks.
+            write:webhooks: Write access to the user's webhooks.
+            write:requestedevents: Write access to the user's requested events.
