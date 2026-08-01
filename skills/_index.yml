@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: generated
+skills:
+- file: stubhub-list-a-ticket.md
+  name: List a ticket for sale on StubHub
+  api: openapi/stubhub-inventory-openapi.yml
+  operations:
+  - Events_SearchEvents
+  - SellerListings_CreateListingPreview
+  - SellerListings_CreateListing
+  - ETicket_UploadListingETicket
+- file: stubhub-fulfill-a-sale.md
+  name: Fulfill a StubHub sale
+  api: openapi/stubhub-sales-openapi.yml
+  operations:
+  - Sales_GetSalesRecentUpdates
+  - Sales_Get
+  - ETicket_UploadSaleETicket
+  - Shipments_PutOrGetSaleShipmentLabel
+  - Sales_Patch
+- file: stubhub-search-events.md
+  name: Search the StubHub event catalog
+  api: openapi/stubhub-catalog-openapi.yml
+  operations:
+  - Events_SearchEvents
+  - Events_GetEvents
+  - Events_GetEvent
+  - Venues_GetVenue
+- file: stubhub-manage-webhooks.md
+  name: Manage StubHub webhooks
+  api: openapi/stubhub-webhooks-openapi.yml
+  operations:
+  - Webhooks_Post
+  - Webhooks_Get
+  - Webhooks_PingWebhook
+  - Webhooks_Delete

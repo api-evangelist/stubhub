@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://developer.stubhub.com/docs/overview/introduction
+access:
+  model: gated / partner-approved
+  request_contacts:
+  - affiliates@stubhub.com
+  - api.support@stubhub.com
+  notes: Access to the new StubHub API is granted on request to affiliates or seller-integration partners (2022 API migration).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No public RFC 8594 deprecation/sunset policy documented.
+sla:
+  url: null
+status_page: https://status.stubhub.com/
+deprecated_operations: []

@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for StubHub Webhooks API
+  version: 1.0.0
+extends: openapi/stubhub-webhooks-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: true
+    x-media-type: application/hal+json
+    x-source: https://developer.stubhub.com/api-reference/webhooks
+- target: $.info
+  update:
+    x-authentication: oauth2
+    x-sandbox: https://sandbox.api.stubhub.net/

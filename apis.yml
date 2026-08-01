@@ -1,27 +1,412 @@
 aid: stubhub
 name: StubHub
-description: 'StubHub is a company surfaced as a portfolio company of bessemer-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: marketplaces. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: StubHub is the world's largest secondary-market ticket marketplace, connecting buyers and
+  sellers of tickets to sports, concerts, theater, and live events. Its official developer platform (developer.stubhub.com,
+  migrated to a v2 API in 2022 on api.stubhub.net) exposes five partner-gated REST APIs — Account, Catalog,
+  Inventory, Sales, and Webhooks — that let approved affiliate and seller-integration partners search
+  events, create and manage seller listings, upload e-tickets, fulfill sales and shipments, view payments,
+  and subscribe to event webhooks. All resources use the application/hal+json (HAL) media type and OAuth2
+  (client-credentials and authorization-code flows). StubHub is a viagogo company and its official GogoKit
+  SDKs (.NET, Ruby) target the shared HAL API.
 url: https://raw.githubusercontent.com/api-evangelist/stubhub/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - bessemer-venture-partners
-x-tier: stub
+x-tier: profiled
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Marketplaces
-apis: []
+- Tickets
+- Events
+- Ticketing
+- Live Events
+- Secondary Market
+- E-commerce
+- Sports
+- Concerts
+apis:
+- aid: stubhub:stubhub-addressess-api
+  name: StubHub Addressess API
+  description: The Addressess API from StubHub — 2 operation(s) for addressess.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Addressess
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-addressess-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-categories-api
+  name: StubHub Categories API
+  description: The Categories API from StubHub — 1 operation(s) for categories.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-categories-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-e-tickets-api
+  name: StubHub E-Tickets API
+  description: The E-Tickets API from StubHub — 12 operation(s) for e-tickets.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - E-Tickets
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-e-tickets-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-events-api
+  name: StubHub Events API
+  description: The Events API from StubHub — 7 operation(s) for events.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-events-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-listingconstraints-api
+  name: StubHub ListingConstraints API
+  description: The ListingConstraints API from StubHub — 3 operation(s) for listingconstraints.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - ListingConstraints
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-listingconstraints-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-paymentmethods-api
+  name: StubHub PaymentMethods API
+  description: The PaymentMethods API from StubHub — 3 operation(s) for paymentmethods.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - PaymentMethods
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-paymentmethods-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-payments-api
+  name: StubHub Payments API
+  description: The Payments API from StubHub — 3 operation(s) for payments.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-payments-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-sales-api
+  name: StubHub Sales API
+  description: The Sales API from StubHub — 3 operation(s) for sales.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Sales
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-sales-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-sellerevents-api
+  name: StubHub SellerEvents API
+  description: The SellerEvents API from StubHub — 2 operation(s) for sellerevents.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - SellerEvents
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-sellerevents-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-sellerlistings-api
+  name: StubHub SellerListings API
+  description: The SellerListings API from StubHub — 9 operation(s) for sellerlistings.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - SellerListings
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-sellerlistings-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-shipments-api
+  name: StubHub Shipments API
+  description: The Shipments API from StubHub — 6 operation(s) for shipments.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Shipments
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-shipments-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-ticketholders-api
+  name: StubHub TicketHolders API
+  description: The TicketHolders API from StubHub — 1 operation(s) for ticketholders.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - TicketHolders
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-ticketholders-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-user-api
+  name: StubHub User API
+  description: The User API from StubHub — 1 operation(s) for user.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-user-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-venues-api
+  name: StubHub Venues API
+  description: The Venues API from StubHub — 2 operation(s) for venues.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Venues
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-venues-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-webhooks-api
+  name: StubHub Webhooks API
+  description: The Webhooks API from StubHub — 3 operation(s) for webhooks.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-webhooks-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/stubhub-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/stubhub-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/stubhub-scopes.yml
+- type: Authentication
+  url: authentication/stubhub-authentication.yml
 - type: Website
   url: https://www.stubhub.com/
+- type: DeveloperPortal
+  url: https://developer.stubhub.com/
+- type: Documentation
+  url: https://developer.stubhub.com/docs/overview/introduction
+- type: APIReference
+  url: https://developer.stubhub.com/api-reference/account
+- type: GettingStarted
+  url: https://developer.stubhub.com/docs/authentication/basic-steps
+- type: Blog
+  url: https://developer.stubhub.com/blog
+- type: Support
+  url: mailto:api.support@stubhub.com
+- type: GitHubOrganization
+  url: https://github.com/viagogo
+- type: TermsOfService
+  url: https://www.stubhub.com/legal/
+- type: StatusPage
+  url: https://status.stubhub.com/
+- type: Packages
+  url: packages/stubhub-packages.yml
+- type: SDKs
+  url: packages/stubhub-packages.yml
+- type: MCPServer
+  url: mcp/stubhub-mcp.yml
+- type: LLMsTxt
+  url: llms/stubhub-llms.txt
+- type: Conventions
+  url: conventions/stubhub-conventions.yml
+- type: ErrorCatalog
+  url: errors/stubhub-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/stubhub-lifecycle.yml
+- type: Conformance
+  url: conformance/stubhub-conformance.yml
+- type: WellKnown
+  url: well-known/stubhub-well-known.yml
+- type: Sandbox
+  url: sandbox/stubhub-sandbox.yml
+- type: DataModel
+  url: data-model/stubhub-data-model.yml
+- type: Webhooks
+  url: asyncapi/stubhub-webhooks.yml
+- type: ChangeLog
+  url: changelog/stubhub-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+image: https://www.stubhub.com/favicon.ico
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 31
+  pass: local-v1

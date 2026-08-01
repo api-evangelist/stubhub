@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/docs/overview/error-responses
+format: custom-json
+envelope:
+  fields:
+  - code
+  - message
+  - errors
+  example:
+    code: validation_failed
+    message: null
+    errors:
+      seller_listing.ticket_price:
+      - You must provide either 'ticket_price' or 'ticket_proceeds'
+problems:
+- code: https_required
+  status: 400
+  title: The request is not using an SSL connection.
+- code: user_agent_required
+  status: 400
+  title: The request does not include a valid User-Agent header.
+- code: invalid_request_body
+  status: 400
+  title: The request does not include a valid JSON body.
+- code: validation_failed
+  status: 400
+  title: The request data is not valid. `errors` contains a localized message per invalid property.
+- code: insufficient_scope
+  status: 403
+  title: The access token does not have the scope required to access this resource.
+- code: invalid_seller_listing_action
+  status: 403
+  title: Attempting an operation on a SellerListing that does not currently support that action.
+- code: create_listing_not_allowed
+  status: 403
+  title: Attempting to create a listing for an Event that tickets cannot currently be listed for.
+- code: invalid_delete
+  status: 403
+  title: Attempting to delete a resource that cannot be deleted.
+- code: internal_server_error
+  status: 500
+  title: Something is broken on StubHub's side.

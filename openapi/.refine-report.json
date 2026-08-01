@@ -1,0 +1,42 @@
+{
+  "provider": "stubhub",
+  "sources": [
+    "stubhub-addressess-api-openapi.yml",
+    "stubhub-categories-api-openapi.yml",
+    "stubhub-e-tickets-api-openapi.yml",
+    "stubhub-events-api-openapi.yml",
+    "stubhub-listingconstraints-api-openapi.yml",
+    "stubhub-paymentmethods-api-openapi.yml",
+    "stubhub-payments-api-openapi.yml",
+    "stubhub-sales-api-openapi.yml",
+    "stubhub-sellerevents-api-openapi.yml",
+    "stubhub-sellerlistings-api-openapi.yml",
+    "stubhub-shipments-api-openapi.yml",
+    "stubhub-ticketholders-api-openapi.yml",
+    "stubhub-user-api-openapi.yml",
+    "stubhub-venues-api-openapi.yml",
+    "stubhub-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "stubhub-addressess-api-openapi.yml",
+    "stubhub-categories-api-openapi.yml",
+    "stubhub-e-tickets-api-openapi.yml",
+    "stubhub-events-api-openapi.yml",
+    "stubhub-listingconstraints-api-openapi.yml",
+    "stubhub-paymentmethods-api-openapi.yml",
+    "stubhub-payments-api-openapi.yml",
+    "stubhub-sales-api-openapi.yml",
+    "stubhub-sellerevents-api-openapi.yml",
+    "stubhub-sellerlistings-api-openapi.yml",
+    "stubhub-shipments-api-openapi.yml",
+    "stubhub-ticketholders-api-openapi.yml",
+    "stubhub-user-api-openapi.yml",
+    "stubhub-venues-api-openapi.yml",
+    "stubhub-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

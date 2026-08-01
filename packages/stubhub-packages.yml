@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/ code samples + viagogo GitHub org
+note: GogoKit is viagogo's official HAL/HATEOAS client for the StubHub/viagogo API (StubHub is a viagogo company). Referenced
+  directly in the StubHub developer docs code samples (ViagogoClient / GogoKit::Client).
+packages:
+- language: dotnet
+  registry: nuget
+  name: GogoKit
+  url: https://www.nuget.org/packages/GogoKit
+  install: dotnet add package GogoKit
+  source: https://github.com/viagogo/gogokit.net
+  official: true
+- language: ruby
+  registry: rubygems
+  name: gogokit
+  url: https://rubygems.org/gems/gogokit
+  install: gem install gogokit
+  source: https://github.com/viagogo/gogokit.rb
+  official: true

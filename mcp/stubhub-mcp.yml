@@ -1,0 +1,252 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: derived from openapi/ operations
+server:
+  name: stubhub
+  transport: http
+note: No official StubHub MCP server found; candidate tool list derived one-per-operation from the harvested OpenAPI.
+tools:
+- name: Addressess_GetUserAddresses
+  description: List addresses
+  source_operation: openapi/stubhub-account-openapi.yml#Addressess_GetUserAddresses
+- name: Addressess_Post
+  description: Create an address
+  source_operation: openapi/stubhub-account-openapi.yml#Addressess_Post
+- name: Addressess_Get
+  description: Get an address
+  source_operation: openapi/stubhub-account-openapi.yml#Addressess_Get
+- name: Addressess_Patch
+  description: Update an address
+  source_operation: openapi/stubhub-account-openapi.yml#Addressess_Patch
+- name: Addressess_Delete
+  description: Delete an address
+  source_operation: openapi/stubhub-account-openapi.yml#Addressess_Delete
+- name: PaymentMethods_GetPaymentMethods
+  description: List payment methods
+  source_operation: openapi/stubhub-account-openapi.yml#PaymentMethods_GetPaymentMethods
+- name: PaymentMethods_GetPaymentMethod
+  description: Get a payment method
+  source_operation: openapi/stubhub-account-openapi.yml#PaymentMethods_GetPaymentMethod
+- name: PaymentMethods_GetListingPaymentMethods
+  description: List payment methods for a listing
+  source_operation: openapi/stubhub-account-openapi.yml#PaymentMethods_GetListingPaymentMethods
+- name: User_Get
+  description: Get the authenticated user
+  source_operation: openapi/stubhub-account-openapi.yml#User_Get
+- name: User_Patch
+  description: Update the authenticated user
+  source_operation: openapi/stubhub-account-openapi.yml#User_Patch
+- name: Categories_MapCategory
+  description: Search categories
+  source_operation: openapi/stubhub-catalog-openapi.yml#Categories_MapCategory
+- name: Events_GetEvents
+  description: List events
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetEvents
+- name: Events_GetEventsByEventIds
+  description: List events by event ids.
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetEventsByEventIds
+- name: Events_GetEventsByCategoryId
+  description: List events by category id.
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetEventsByCategoryId
+- name: Events_GetEventByExternalEventId
+  description: Get an event on the StubHub platform using an identifier from an external platform.
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetEventByExternalEventId
+- name: Events_GetEvent
+  description: Get an event
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetEvent
+- name: Events_SearchEvents
+  description: Search events
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_SearchEvents
+- name: Events_GetAllEventsByCategoryId
+  description: Get all events under a CategoryId
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_GetAllEventsByCategoryId
+- name: Events_MapEvent
+  description: Map request to StubHub Event, Venue and Category
+  source_operation: openapi/stubhub-catalog-openapi.yml#Events_MapEvent
+- name: Venues_GetVenues
+  description: List venues
+  source_operation: openapi/stubhub-catalog-openapi.yml#Venues_GetVenues
+- name: Venues_GetVenue
+  description: Get a venue
+  source_operation: openapi/stubhub-catalog-openapi.yml#Venues_GetVenue
+- name: SellerListings_Patch
+  description: Update a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_Patch
+- name: SellerListings_Get
+  description: Get a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_Get
+- name: SellerListings_DeleteListing
+  description: Delete a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_DeleteListing
+- name: SellerListings_GetSellerListingsRecentUpdates
+  description: List seller listings (recent updates)
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_GetSellerListingsRecentUpdates
+- name: SellerListings_GetSellerListings
+  description: List seller listings
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_GetSellerListings
+- name: SellerListings_CreateListingForRequestedEvent
+  description: Create a seller listing for a requested event
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_CreateListingForRequestedEvent
+- name: SellerListings_CreateListing
+  description: Create a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_CreateListing
+- name: SellerListings_GetByExternalListingId
+  description: Get a seller listing by external ID
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_GetByExternalListingId
+- name: SellerListings_PatchByExternalListingId
+  description: Update a seller listing by external ID
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_PatchByExternalListingId
+- name: SellerListings_DeleteListingByExternalListingId
+  description: Delete a seller listing by external ID
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_DeleteListingByExternalListingId
+- name: SellerListings_CreateListingPreview
+  description: Preview a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_CreateListingPreview
+- name: SellerListings_UpdateListingPreview
+  description: Preview a seller listing update
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_UpdateListingPreview
+- name: SellerListings_CreateListingPreviewForRequestedEvent
+  description: Preview a seller listing for a requested event
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerListings_CreateListingPreviewForRequestedEvent
+- name: ETicket_UploadListingETicket
+  description: Upload e-tickets for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_UploadListingETicket
+- name: ETicket_GetListingETicketUploads
+  description: List e-ticket uploads for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_GetListingETicketUploads
+- name: ETicket_UploadEventETicket
+  description: Upload e-tickets for an event
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_UploadEventETicket
+- name: ETicket_GetEventETicketUploads
+  description: List e-ticket uploads for an event
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_GetEventETicketUploads
+- name: ETicket_GetListingETickets
+  description: List e-tickets for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_GetListingETickets
+- name: ETicket_MarkBackETickets
+  description: Mark-back e-tickets from a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_MarkBackETickets
+- name: ETicket_PostListingETickets
+  description: Upload and save e-tickets for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_PostListingETickets
+- name: ETicket_DeleteListingETicket
+  description: Delete e-ticket from a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_DeleteListingETicket
+- name: ETicket_DeleteEventETicket
+  description: Delete e-ticket from an event
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicket_DeleteEventETicket
+- name: ETicketDocument_GetMarkedBackETicketDocument
+  description: Get marked back e-ticket file for seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ETicketDocument_GetMarkedBackETicketDocument
+- name: ListingConstraints_GetEventListingConstraints
+  description: List listing constraints for an event
+  source_operation: openapi/stubhub-inventory-openapi.yml#ListingConstraints_GetEventListingConstraints
+- name: ListingConstraints_GetListingConstraints
+  description: Get listing constraints for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#ListingConstraints_GetListingConstraints
+- name: ListingConstraints_PutRequestedEventListingConstraints
+  description: Get listing constraints for a requested event
+  source_operation: openapi/stubhub-inventory-openapi.yml#ListingConstraints_PutRequestedEventListingConstraints
+- name: SellerEvents_GetSellerEvents
+  description: List seller events
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerEvents_GetSellerEvents
+- name: SellerEvents_PutSellerRequestedEvent
+  description: Create a seller event
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerEvents_PutSellerRequestedEvent
+- name: SellerEvents_GetSellerEvent
+  description: Get a seller event
+  source_operation: openapi/stubhub-inventory-openapi.yml#SellerEvents_GetSellerEvent
+- name: Shipments_GetListingShippingLabel
+  description: Get a shipping label for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#Shipments_GetListingShippingLabel
+- name: Shipments_GetListingShipments
+  description: List shipments for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#Shipments_GetListingShipments
+- name: Shipments_PutOrGetListingShipmentLabel
+  description: Print a shipping label for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#Shipments_PutOrGetListingShipmentLabel
+- name: Shipments_PatchListingShipment
+  description: Update a shipment for a seller listing
+  source_operation: openapi/stubhub-inventory-openapi.yml#Shipments_PatchListingShipment
+- name: Sales_GetSalesRecentUpdates
+  description: List sales (recent updates)
+  source_operation: openapi/stubhub-sales-openapi.yml#Sales_GetSalesRecentUpdates
+- name: Sales_GetSales
+  description: List sales
+  source_operation: openapi/stubhub-sales-openapi.yml#Sales_GetSales
+- name: Sales_Get
+  description: Get a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Sales_Get
+- name: Sales_Patch
+  description: Update a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Sales_Patch
+- name: Sales_Delete
+  description: Reject a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Sales_Delete
+- name: ETicket_UploadSaleETicket
+  description: Upload e-tickets or proof of transfer for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicket_UploadSaleETicket
+- name: ETicket_GetSaleETicketUploads
+  description: List e-ticket uploads for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicket_GetSaleETicketUploads
+- name: ETicket_GetSaleETickets
+  description: List e-tickets for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicket_GetSaleETickets
+- name: ETicket_PostSaleETickets
+  description: Upload and save e-tickets for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicket_PostSaleETickets
+- name: ETicket_DeleteSaleETicket
+  description: Delete e-ticket from a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicket_DeleteSaleETicket
+- name: ETicketDocument_GetETicketThumbnail
+  description: Get e-ticket thumbnail file
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicketDocument_GetETicketThumbnail
+- name: ETicketDocument_GetETicketUploadDocument
+  description: Get e-ticket upload file
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicketDocument_GetETicketUploadDocument
+- name: ETicketDocument_GetETicketDocument
+  description: Get e-ticket file
+  source_operation: openapi/stubhub-sales-openapi.yml#ETicketDocument_GetETicketDocument
+- name: Payments_GetPayments
+  description: List payments
+  source_operation: openapi/stubhub-sales-openapi.yml#Payments_GetPayments
+- name: Payments_Get
+  description: Get a payment
+  source_operation: openapi/stubhub-sales-openapi.yml#Payments_Get
+- name: Payments_GetNextPayment
+  description: Preview next payment
+  source_operation: openapi/stubhub-sales-openapi.yml#Payments_GetNextPayment
+- name: Shipments_GetSaleShippingLabel
+  description: Get shipping label for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Shipments_GetSaleShippingLabel
+- name: Shipments_GetSaleShipments
+  description: List shipments for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Shipments_GetSaleShipments
+- name: Shipments_PutOrGetSaleShipmentLabel
+  description: Print a shipping label for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Shipments_PutOrGetSaleShipmentLabel
+- name: Shipments_PatchSaleShipment
+  description: Update a shipment for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#Shipments_PatchSaleShipment
+- name: TicketHolders_GetSaleTicketHolderDetails
+  description: List ticket holder details for a sale
+  source_operation: openapi/stubhub-sales-openapi.yml#TicketHolders_GetSaleTicketHolderDetails
+- name: Webhooks_Get
+  description: List webhooks
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_Get
+- name: Webhooks_Post
+  description: Create a webhook
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_Post
+- name: Webhooks_Get2
+  description: Get a webhook
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_Get2
+- name: Webhooks_Patch
+  description: Update a webhook
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_Patch
+- name: Webhooks_Delete
+  description: Delete a webhook
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_Delete
+- name: Webhooks_PingWebhook
+  description: Ping a webhook
+  source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_PingWebhook

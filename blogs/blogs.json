@@ -1,0 +1,21 @@
+{
+  "repo": "stubhub",
+  "feeds": [
+    {
+      "source": "https://developer.stubhub.com/blog/rss.xml",
+      "feed_url": "https://developer.stubhub.com/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://developer.stubhub.com/docs/authentication/basic-steps",
+      "feed_url": "https://developer.stubhub.com/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-08-01T15:49:00Z"
+}

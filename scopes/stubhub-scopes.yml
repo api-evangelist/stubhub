@@ -1,0 +1,143 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/stubhub-account-openapi.yml, openapi/stubhub-catalog-openapi.yml, openapi/stubhub-inventory-openapi.yml, openapi/stubhub-sales-openapi.yml,
+  openapi/stubhub-webhooks-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/stubhub-account-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://account.stubhub.com/authorize
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  description: OAuth2. All API requests must be authenticated.
+- name: oauth2
+  source: openapi/stubhub-catalog-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://account.stubhub.com/authorize
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  description: OAuth2. All API requests must be authenticated.
+- name: oauth2
+  source: openapi/stubhub-inventory-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://account.stubhub.com/authorize
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  description: OAuth2. All API requests must be authenticated.
+- name: oauth2
+  source: openapi/stubhub-sales-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://account.stubhub.com/authorize
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  description: OAuth2. All API requests must be authenticated.
+- name: oauth2
+  source: openapi/stubhub-webhooks-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://account.stubhub.com/authorize
+    tokenUrl: https://account.stubhub.com/oauth2/token
+  description: OAuth2. All API requests must be authenticated.
+scopes:
+- scope: read:events
+  description: Read-only access to events on the StubHub platform.
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: read:payment
+  description: Read-only access to the user's payments.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: read:sales
+  description: Read access to the user's sales.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: read:sellerlistings
+  description: Read access to the user's listings.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: read:webhooks
+  description: Read access to the user's webhooks.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: write:requestedevents
+  description: Write access to the user's requested events.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: write:sales
+  description: Write access to the user's sales (confirm and fulfill sales).
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: write:sellerlistings
+  description: Write access to the user's listings (create and update listings).
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+- scope: write:webhooks
+  description: Write access to the user's webhooks.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stubhub-account-openapi.yml
+  - openapi/stubhub-catalog-openapi.yml
+  - openapi/stubhub-inventory-openapi.yml
+  - openapi/stubhub-sales-openapi.yml
+  - openapi/stubhub-webhooks-openapi.yml
+docs: https://developer.stubhub.com/docs/authentication/scopes

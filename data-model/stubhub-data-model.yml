@@ -1,0 +1,83 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ (harvested paths + HAL _embedded relations)
+entities:
+- name: User
+  api: account
+  relationships:
+  - type: has_many
+    target: Address
+    via: addresses
+  - type: has_many
+    target: PaymentMethod
+    via: paymentmethods
+- name: Address
+  api: account
+  relationships:
+  - type: belongs_to
+    target: User
+- name: PaymentMethod
+  api: account
+  relationships:
+  - type: belongs_to
+    target: User
+- name: Category
+  api: catalog
+  relationships:
+  - type: has_many
+    target: Event
+    via: events
+- name: Event
+  api: catalog
+  relationships:
+  - type: has_one
+    target: Venue
+    via: venue
+  - type: belongs_to
+    target: Category
+- name: Venue
+  api: catalog
+  relationships: []
+- name: SellerListing
+  api: inventory
+  relationships:
+  - type: belongs_to
+    target: Event
+    via: eventId
+  - type: has_many
+    target: ETicket
+    via: etickets
+  - type: has_many
+    target: Shipment
+    via: shipments
+- name: ETicket
+  api: inventory/sales
+  relationships:
+  - type: belongs_to
+    target: SellerListing
+- name: Sale
+  api: sales
+  relationships:
+  - type: belongs_to
+    target: SellerListing
+  - type: has_many
+    target: Shipment
+    via: shipments
+  - type: has_many
+    target: TicketHolder
+    via: ticketholders
+- name: Payment
+  api: sales
+  relationships:
+  - type: belongs_to
+    target: User
+- name: Shipment
+  api: inventory/sales
+  relationships:
+  - type: belongs_to
+    target: Sale
+- name: Webhook
+  api: webhooks
+  relationships:
+  - type: belongs_to
+    target: User

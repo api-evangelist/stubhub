@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for StubHub Sales API
+  version: 1.0.0
+extends: openapi/stubhub-sales-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: true
+    x-media-type: application/hal+json
+    x-source: https://developer.stubhub.com/api-reference/sales
+- target: $.info
+  update:
+    x-authentication: oauth2
+    x-sandbox: https://sandbox.api.stubhub.net/

@@ -1,0 +1,549 @@
+# Harvested from https://developer.stubhub.com/api-reference/sales (Redoc SSR)
+# method: searched  source: developer.stubhub.com  generated: 2026-07-21
+openapi: 3.0.3
+info:
+  title: StubHub Sales API
+  version: v2
+  description: StubHub Sales API — manage sales, fulfill orders with e-tickets and shipments, view payments and ticket holders.
+  contact:
+    name: StubHub API Support
+    email: api.support@stubhub.com
+    url: https://developer.stubhub.com/
+  x-media-type: application/hal+json
+servers:
+- url: https://api.stubhub.net
+  description: Production
+- url: https://sandbox.api.stubhub.net
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: E Tickets
+- name: Payments
+- name: Sales
+- name: Shipments
+- name: TicketHolders
+paths:
+  /sales/recentupdates:
+    get:
+      operationId: Sales_GetSalesRecentUpdates
+      summary: List sales (recent updates)
+      tags:
+      - Sales
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': &id001
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401': &id002
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403': &id003
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed,
+            or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500': &id004
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      security:
+      - oauth2:
+        - read:sales
+  /sales:
+    get:
+      operationId: Sales_GetSales
+      summary: List sales
+      tags:
+      - Sales
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:sales
+  /sales/{saleId}:
+    get:
+      operationId: Sales_Get
+      summary: Get a sale
+      tags:
+      - Sales
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+    patch:
+      operationId: Sales_Patch
+      summary: Update a sale
+      tags:
+      - Sales
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+    delete:
+      operationId: Sales_Delete
+      summary: Reject a sale
+      tags:
+      - Sales
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /sales/{saleId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadSaleETicket
+      summary: Upload e-tickets or proof of transfer for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+    get:
+      operationId: ETicket_GetSaleETicketUploads
+      summary: List e-ticket uploads for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /sales/{saleId}/etickets:
+    get:
+      operationId: ETicket_GetSaleETickets
+      summary: List e-tickets for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+    post:
+      operationId: ETicket_PostSaleETickets
+      summary: Upload and save e-tickets for a sale
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /sales/{saleId}/etickets/{eticketId}:
+    delete:
+      operationId: ETicket_DeleteSaleETicket
+      summary: Delete e-ticket from a sale
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /etickets/{eticketId}/thumbnail:
+    get:
+      operationId: ETicketDocument_GetETicketThumbnail
+      summary: Get e-ticket thumbnail file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /eticketuploads/{eticketUploadId}/document:
+    get:
+      operationId: ETicketDocument_GetETicketUploadDocument
+      summary: Get e-ticket upload file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eticketUploadId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /etickets/{eticketId}/document:
+    get:
+      operationId: ETicketDocument_GetETicketDocument
+      summary: Get e-ticket file
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /payments:
+    get:
+      operationId: Payments_GetPayments
+      summary: List payments
+      tags:
+      - Payments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:payment
+  /payments/{paymentId}:
+    get:
+      operationId: Payments_Get
+      summary: Get a payment
+      tags:
+      - Payments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: paymentId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:payment
+  /payments/next:
+    get:
+      operationId: Payments_GetNextPayment
+      summary: Preview next payment
+      tags:
+      - Payments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:payment
+  /sales/{saleId}/shipments/{shipmentId}/label:
+    get:
+      operationId: Shipments_GetSaleShippingLabel
+      summary: Get shipping label for a sale
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: shipmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+  /sales/{saleId}/shipments:
+    get:
+      operationId: Shipments_GetSaleShipments
+      summary: List shipments for a sale
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+    put:
+      operationId: Shipments_PutOrGetSaleShipmentLabel
+      summary: Print a shipping label for a sale
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /sales/{saleId}/shipments/{shipmentId}:
+    patch:
+      operationId: Shipments_PatchSaleShipment
+      summary: Update a shipment for a sale
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: shipmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sales
+  /sales/{saleId}/ticketholders:
+    get:
+      operationId: TicketHolders_GetSaleTicketHolderDetails
+      summary: List ticket holder details for a sale
+      tags:
+      - TicketHolders
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: saleId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sales
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. All API requests must be authenticated.
+      flows:
+        clientCredentials:
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+        authorizationCode:
+          authorizationUrl: https://account.stubhub.com/authorize
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          refreshUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+            read:payment: Read-only access to the user's payments.
+            read:sales: Read access to the user's sales.
+            write:sales: Write access to the user's sales (confirm and fulfill sales).
+            read:sellerlistings: Read access to the user's listings.
+            write:sellerlistings: Write access to the user's listings (create and update listings).
+            read:webhooks: Read access to the user's webhooks.
+            write:webhooks: Write access to the user's webhooks.
+            write:requestedevents: Write access to the user's requested events.

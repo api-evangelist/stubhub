@@ -1,0 +1,1210 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/stubhub-account-openapi.yml, openapi/stubhub-catalog-openapi.yml, openapi/stubhub-inventory-openapi.yml,
+  openapi/stubhub-sales-openapi.yml, openapi/stubhub-webhooks-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 81
+  by_action_class:
+    connected: 44
+    acting: 37
+  by_consequence:
+    read: 44
+    write: 31
+    physical: 6
+  human_in_the_loop_required: 0
+operations:
+- path: /addresses
+  method: get
+  operationId: Addressess_GetUserAddresses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /addresses
+  method: post
+  operationId: Addressess_Post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /addresses/{addressId}
+  method: get
+  operationId: Addressess_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /addresses/{addressId}
+  method: patch
+  operationId: Addressess_Patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /addresses/{addressId}
+  method: delete
+  operationId: Addressess_Delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /paymentmethods
+  method: get
+  operationId: PaymentMethods_GetPaymentMethods
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:payment
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /paymentmethods/{paymentMethodId}
+  method: get
+  operationId: PaymentMethods_GetPaymentMethod
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:payment
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /listings/{listingId}/paymentmethods
+  method: put
+  operationId: PaymentMethods_GetListingPaymentMethods
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - read:payment
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /user
+  method: get
+  operationId: User_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /user
+  method: patch
+  operationId: User_Patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /catalog/categories/map
+  method: get
+  operationId: Categories_MapCategory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - write:requestedevents
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/events
+  method: get
+  operationId: Events_GetEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/events
+  method: put
+  operationId: Events_GetEventsByEventIds
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - read:events
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /catalog/categories/{categoryId}/events
+  method: get
+  operationId: Events_GetEventsByCategoryId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/events/external_mappings/{platform}/{externalEventId}
+  method: get
+  operationId: Events_GetEventByExternalEventId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/events/{eventId}
+  method: get
+  operationId: Events_GetEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/events/search
+  method: get
+  operationId: Events_SearchEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/categories/{categoryId}/allevents
+  method: get
+  operationId: Events_GetAllEventsByCategoryId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/mapevent
+  method: post
+  operationId: Events_MapEvent
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:requestedevents
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /catalog/venues
+  method: get
+  operationId: Venues_GetVenues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog/venues/{venueId}
+  method: get
+  operationId: Venues_GetVenue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:events
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}
+  method: patch
+  operationId: SellerListings_Patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}
+  method: get
+  operationId: SellerListings_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}
+  method: delete
+  operationId: SellerListings_DeleteListing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/recentupdates
+  method: get
+  operationId: SellerListings_GetSellerListingsRecentUpdates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings
+  method: get
+  operationId: SellerListings_GetSellerListings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings
+  method: post
+  operationId: SellerListings_CreateListingForRequestedEvent
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:requestedevents
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/{eventId}/sellerlistings
+  method: post
+  operationId: SellerListings_CreateListing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /externalsellerlistings/{externallistingId}
+  method: get
+  operationId: SellerListings_GetByExternalListingId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /externalsellerlistings/{externalId}
+  method: patch
+  operationId: SellerListings_PatchByExternalListingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /externalsellerlistings/{externalId}
+  method: delete
+  operationId: SellerListings_DeleteListingByExternalListingId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/{eventId}/sellerlistingpreview
+  method: post
+  operationId: SellerListings_CreateListingPreview
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/updatepreview
+  method: post
+  operationId: SellerListings_UpdateListingPreview
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistingpreview
+  method: post
+  operationId: SellerListings_CreateListingPreviewForRequestedEvent
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:requestedevents
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/eticketuploads
+  method: post
+  operationId: ETicket_UploadListingETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/eticketuploads
+  method: get
+  operationId: ETicket_GetListingETicketUploads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{eventId}/eticketuploads
+  method: post
+  operationId: ETicket_UploadEventETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/{eventId}/eticketuploads
+  method: get
+  operationId: ETicket_GetEventETicketUploads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/etickets
+  method: get
+  operationId: ETicket_GetListingETickets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/etickets
+  method: patch
+  operationId: ETicket_MarkBackETickets
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/etickets
+  method: post
+  operationId: ETicket_PostListingETickets
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/etickets/{ETicketId}
+  method: delete
+  operationId: ETicket_DeleteListingETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/{eventId}/etickets/{eticketId}
+  method: delete
+  operationId: ETicket_DeleteEventETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/markedbacketickets/{markedBackETicketId}/document
+  method: get
+  operationId: ETicketDocument_GetMarkedBackETicketDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/{eventId}/listingconstraints
+  method: get
+  operationId: ListingConstraints_GetEventListingConstraints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/constraints
+  method: get
+  operationId: ListingConstraints_GetListingConstraints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /listingconstraints
+  method: put
+  operationId: ListingConstraints_PutRequestedEventListingConstraints
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:requestedevents
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerevents
+  method: get
+  operationId: SellerEvents_GetSellerEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerevents
+  method: put
+  operationId: SellerEvents_PutSellerRequestedEvent
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:requestedevents
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerevents/{eventIdOrRequestedEventId}
+  method: get
+  operationId: SellerEvents_GetSellerEvent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/shipments/{shipmentId}/label
+  method: get
+  operationId: Shipments_GetListingShippingLabel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/shipments
+  method: get
+  operationId: Shipments_GetListingShipments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sellerlistings
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sellerlistings/{listingId}/shipments
+  method: put
+  operationId: Shipments_PutOrGetListingShipmentLabel
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sellerlistings/{listingId}/shipments/{shipmentId}
+  method: patch
+  operationId: Shipments_PatchListingShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - write:sellerlistings
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/recentupdates
+  method: get
+  operationId: Sales_GetSalesRecentUpdates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales
+  method: get
+  operationId: Sales_GetSales
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}
+  method: get
+  operationId: Sales_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}
+  method: patch
+  operationId: Sales_Patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}
+  method: delete
+  operationId: Sales_Delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}/eticketuploads
+  method: post
+  operationId: ETicket_UploadSaleETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}/eticketuploads
+  method: get
+  operationId: ETicket_GetSaleETicketUploads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}/etickets
+  method: get
+  operationId: ETicket_GetSaleETickets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}/etickets
+  method: post
+  operationId: ETicket_PostSaleETickets
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}/etickets/{eticketId}
+  method: delete
+  operationId: ETicket_DeleteSaleETicket
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /etickets/{eticketId}/thumbnail
+  method: get
+  operationId: ETicketDocument_GetETicketThumbnail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /eticketuploads/{eticketUploadId}/document
+  method: get
+  operationId: ETicketDocument_GetETicketUploadDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /etickets/{eticketId}/document
+  method: get
+  operationId: ETicketDocument_GetETicketDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payments
+  method: get
+  operationId: Payments_GetPayments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:payment
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payments/{paymentId}
+  method: get
+  operationId: Payments_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:payment
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payments/next
+  method: get
+  operationId: Payments_GetNextPayment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:payment
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}/shipments/{shipmentId}/label
+  method: get
+  operationId: Shipments_GetSaleShippingLabel
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}/shipments
+  method: get
+  operationId: Shipments_GetSaleShipments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sales/{saleId}/shipments
+  method: put
+  operationId: Shipments_PutOrGetSaleShipmentLabel
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}/shipments/{shipmentId}
+  method: patch
+  operationId: Shipments_PatchSaleShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - write:sales
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sales/{saleId}/ticketholders
+  method: get
+  operationId: TicketHolders_GetSaleTicketHolderDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:sales
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /webhooks
+  method: get
+  operationId: Webhooks_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:webhooks
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /webhooks
+  method: post
+  operationId: Webhooks_Post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:webhooks
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /webhooks/{webhookId}
+  method: get
+  operationId: Webhooks_Get2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - read:webhooks
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /webhooks/{webhookId}
+  method: patch
+  operationId: Webhooks_Patch
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:webhooks
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /webhooks/{webhookId}
+  method: delete
+  operationId: Webhooks_Delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:webhooks
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /webhooks/{webhookId}/ping
+  method: post
+  operationId: Webhooks_PingWebhook
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - write:webhooks
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

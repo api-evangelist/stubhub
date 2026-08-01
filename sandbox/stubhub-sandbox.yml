@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/docs/overview/sandbox-environment
+environments:
+- name: production
+  api_root: https://api.stubhub.net/
+  oauth_token: https://account.stubhub.com/oauth2/token
+- name: sandbox
+  api_root: https://sandbox.api.stubhub.net/
+  oauth_token: https://sandbox.account.stubhub.com/oauth2/token
+separation: Distinct sandbox vs production credentials; use sandbox credentials against the sandbox host before going live.
+test_values: null
+note: StubHub does not publish fixed magic test cards/identifiers; sandbox uses partner-issued sandbox credentials.

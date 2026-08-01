@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/blog
+scheme: blog
+current_version: v2
+entries:
+- date: '2022-05-31'
+  title: Migrating to a New API
+  breaking: true
+  highlights: StubHub migrated to a new v2 API (api.stubhub.net). Access granted on request via affiliates@stubhub.com (buyer/affiliate)
+    or api.support@stubhub.com (seller integrations).
+  url: https://developer.stubhub.com/blog/2022/05/31/migrating-to-new-api

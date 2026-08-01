@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/docs/overview/
+authentication:
+  style: oauth2-bearer
+  docs: https://developer.stubhub.com/docs/authentication/
+  notes: Bearer access_token in Authorization header; a valid User-Agent header is required (missing it returns user_agent_required
+    400).
+media_type:
+  type: application/hal+json
+  spec: Hypertext Application Language (HAL)
+  envelope_fields:
+  - _links
+  - _embedded
+  docs: https://developer.stubhub.com/docs/overview/media-type
+pagination:
+  style: page-number
+  params:
+  - page
+  - page_size
+  one_based: true
+  default_page_size: 100
+  response: HAL _links with rels first, prev, next, last
+  docs: https://developer.stubhub.com/docs/overview/pagination
+sorting:
+  param: sort
+  style: comma-separated fields; "-" prefix = descending; default ascending
+  example: sort=event_date,-price
+  docs: https://developer.stubhub.com/docs/overview/sorting
+sparse_fieldsets:
+  param: fields and fields[TYPE]
+  example: fields=id,name,_embedded&fields[venue]=city
+  docs: https://developer.stubhub.com/docs/overview/sparse-fieldsets
+localization:
+  header: Accept-Language
+  default: en
+  docs: https://developer.stubhub.com/docs/overview/localization
+versioning:
+  scheme: uri-path
+  current: v2
+  host: api.stubhub.net
+error_envelope:
+  fields:
+  - code
+  - message
+  - errors
+  ref: errors/stubhub-problem-types.yml
+  docs: https://developer.stubhub.com/docs/overview/error-responses
+idempotency:
+  supported: false
+  note: No idempotency-key header is documented by StubHub.
+cross_references:
+- errors/stubhub-problem-types.yml
+- lifecycle/stubhub-lifecycle.yml
+- authentication/stubhub-authentication.yml
+- scopes/stubhub-scopes.yml

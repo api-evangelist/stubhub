@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.stubhub.com/api-reference/webhooks
+spec_type: Webhooks
+delivery: HTTP POST callbacks to a subscriber-registered URL, managed via the Webhooks API (POST /webhooks).
+management_api: openapi/stubhub-webhooks-openapi.yml
+topics:
+- name: sales
+  delivery: POST
+- name: provisional-sale
+  delivery: POST
+- name: cancel-provisional-sale
+  delivery: POST
+- name: sale-updates
+  delivery: POST
+- name: sellerlisting-updates
+  delivery: POST
+- name: ping
+  delivery: POST
+- name: re-transfer-ticket
+  delivery: POST
+note: StubHub documents webhook topics (event types) but does not publish an AsyncAPI document. Subscriptions are created/managed
+  through the Webhooks REST API; POST /webhooks/{webhookId}/ping tests delivery.

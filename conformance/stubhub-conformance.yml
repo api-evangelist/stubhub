@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ + developer.stubhub.com docs
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth2 client_credentials + authorization_code flows documented and in securitySchemes
+- id: hal
+  conforms: true
+  evidence: All resources use application/hal+json with _links/_embedded
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom {code,message,errors} envelope, not application/problem+json
+- id: webhooks
+  conforms: true
+  evidence: Webhooks API with topic subscriptions
+- id: pagination
+  conforms: true
+  evidence: page/page_size with HAL first/prev/next/last link rels
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key mechanism documented
+- id: json:api
+  conforms: false
+  evidence: Uses HAL, not JSON:API

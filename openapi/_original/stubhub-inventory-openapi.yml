@@ -1,0 +1,823 @@
+# Harvested from https://developer.stubhub.com/api-reference/inventory (Redoc SSR)
+# method: searched  source: developer.stubhub.com  generated: 2026-07-21
+openapi: 3.0.3
+info:
+  title: StubHub Inventory API
+  version: v2
+  description: StubHub Inventory API — create, update, and manage seller listings, e-tickets, listing constraints, seller
+    events, and shipments.
+  contact:
+    name: StubHub API Support
+    email: api.support@stubhub.com
+    url: https://developer.stubhub.com/
+  x-media-type: application/hal+json
+servers:
+- url: https://api.stubhub.net
+  description: Production
+- url: https://sandbox.api.stubhub.net
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: E Tickets
+- name: ListingConstraints
+- name: SellerEvents
+- name: SellerListings
+- name: SellerListings (External Id)
+- name: SellerListings (Preview)
+- name: Shipments
+paths:
+  /sellerlistings/{listingId}:
+    patch:
+      operationId: SellerListings_Patch
+      summary: Update a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': &id001
+          description: Bad Request. Error `code` may be https_required, user_agent_required, invalid_request_body, or validation_failed.
+          content:
+            application/hal+json: {}
+        '401': &id002
+          description: Unauthorized. The request is not authenticated.
+          content:
+            application/hal+json: {}
+        '403': &id003
+          description: Forbidden. Error `code` may be insufficient_scope, invalid_seller_listing_action, create_listing_not_allowed,
+            or invalid_delete.
+          content:
+            application/hal+json: {}
+        '500': &id004
+          description: Internal Server Error (`internal_server_error`).
+          content:
+            application/hal+json: {}
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: SellerListings_Get
+      summary: Get a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+    delete:
+      operationId: SellerListings_DeleteListing
+      summary: Delete a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/recentupdates:
+    get:
+      operationId: SellerListings_GetSellerListingsRecentUpdates
+      summary: List seller listings (recent updates)
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings:
+    get:
+      operationId: SellerListings_GetSellerListings
+      summary: List seller listings
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:sellerlistings
+    post:
+      operationId: SellerListings_CreateListingForRequestedEvent
+      summary: Create a seller listing for a requested event
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - write:requestedevents
+  /events/{eventId}/sellerlistings:
+    post:
+      operationId: SellerListings_CreateListing
+      summary: Create a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /externalsellerlistings/{externallistingId}:
+    get:
+      operationId: SellerListings_GetByExternalListingId
+      summary: Get a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: externallistingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /externalsellerlistings/{externalId}:
+    patch:
+      operationId: SellerListings_PatchByExternalListingId
+      summary: Update a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: externalId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    delete:
+      operationId: SellerListings_DeleteListingByExternalListingId
+      summary: Delete a seller listing by external ID
+      tags:
+      - SellerListings
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: externalId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /events/{eventId}/sellerlistingpreview:
+    post:
+      operationId: SellerListings_CreateListingPreview
+      summary: Preview a seller listing
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/updatepreview:
+    post:
+      operationId: SellerListings_UpdateListingPreview
+      summary: Preview a seller listing update
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistingpreview:
+    post:
+      operationId: SellerListings_CreateListingPreviewForRequestedEvent
+      summary: Preview a seller listing for a requested event
+      tags:
+      - SellerListings
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - write:requestedevents
+  /sellerlistings/{listingId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadListingETicket
+      summary: Upload e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: ETicket_GetListingETicketUploads
+      summary: List e-ticket uploads for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /events/{eventId}/eticketuploads:
+    post:
+      operationId: ETicket_UploadEventETicket
+      summary: Upload e-tickets for an event
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    get:
+      operationId: ETicket_GetEventETicketUploads
+      summary: List e-ticket uploads for an event
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings/{listingId}/etickets:
+    get:
+      operationId: ETicket_GetListingETickets
+      summary: List e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+    patch:
+      operationId: ETicket_MarkBackETickets
+      summary: Mark-back e-tickets from a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+    post:
+      operationId: ETicket_PostListingETickets
+      summary: Upload and save e-tickets for a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '201':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/etickets/{ETicketId}:
+    delete:
+      operationId: ETicket_DeleteListingETicket
+      summary: Delete e-ticket from a seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ETicketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /events/{eventId}/etickets/{eticketId}:
+    delete:
+      operationId: ETicket_DeleteEventETicket
+      summary: Delete e-ticket from an event
+      tags:
+      - E-Tickets
+      responses:
+        '204':
+          description: Deleted.
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: eticketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/markedbacketickets/{markedBackETicketId}/document:
+    get:
+      operationId: ETicketDocument_GetMarkedBackETicketDocument
+      summary: Get marked back e-ticket file for seller listing
+      tags:
+      - E-Tickets
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: markedBackETicketId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /events/{eventId}/listingconstraints:
+    get:
+      operationId: ListingConstraints_GetEventListingConstraints
+      summary: List listing constraints for an event
+      tags:
+      - ListingConstraints
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings/{listingId}/constraints:
+    get:
+      operationId: ListingConstraints_GetListingConstraints
+      summary: Get listing constraints for a seller listing
+      tags:
+      - ListingConstraints
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /listingconstraints:
+    put:
+      operationId: ListingConstraints_PutRequestedEventListingConstraints
+      summary: Get listing constraints for a requested event
+      tags:
+      - ListingConstraints
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - write:requestedevents
+  /sellerevents:
+    get:
+      operationId: SellerEvents_GetSellerEvents
+      summary: List seller events
+      tags:
+      - SellerEvents
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - read:sellerlistings
+    put:
+      operationId: SellerEvents_PutSellerRequestedEvent
+      summary: Create a seller event
+      tags:
+      - SellerEvents
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      security:
+      - oauth2:
+        - write:requestedevents
+  /sellerevents/{eventIdOrRequestedEventId}:
+    get:
+      operationId: SellerEvents_GetSellerEvent
+      summary: Get a seller event
+      tags:
+      - SellerEvents
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: eventIdOrRequestedEventId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings/{listingId}/shipments/{shipmentId}/label:
+    get:
+      operationId: Shipments_GetListingShippingLabel
+      summary: Get a shipping label for a seller listing
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: shipmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+  /sellerlistings/{listingId}/shipments:
+    get:
+      operationId: Shipments_GetListingShipments
+      summary: List shipments for a seller listing
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - read:sellerlistings
+    put:
+      operationId: Shipments_PutOrGetListingShipmentLabel
+      summary: Print a shipping label for a seller listing
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+  /sellerlistings/{listingId}/shipments/{shipmentId}:
+    patch:
+      operationId: Shipments_PatchListingShipment
+      summary: Update a shipment for a seller listing
+      tags:
+      - Shipments
+      responses:
+        '200':
+          description: Success. Response is `application/hal+json`.
+          content:
+            application/hal+json: {}
+        '400': *id001
+        '401': *id002
+        '403': *id003
+        '500': *id004
+      parameters:
+      - name: listingId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: shipmentId
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - oauth2:
+        - write:sellerlistings
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth2. All API requests must be authenticated.
+      flows:
+        clientCredentials:
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+        authorizationCode:
+          authorizationUrl: https://account.stubhub.com/authorize
+          tokenUrl: https://account.stubhub.com/oauth2/token
+          refreshUrl: https://account.stubhub.com/oauth2/token
+          scopes:
+            read:events: Read-only access to events on the StubHub platform.
+            read:payment: Read-only access to the user's payments.
+            read:sales: Read access to the user's sales.
+            write:sales: Write access to the user's sales (confirm and fulfill sales).
+            read:sellerlistings: Read access to the user's listings.
+            write:sellerlistings: Write access to the user's listings (create and update listings).
+            read:webhooks: Read access to the user's webhooks.
+            write:webhooks: Write access to the user's webhooks.
+            write:requestedevents: Write access to the user's requested events.

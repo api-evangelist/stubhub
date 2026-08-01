@@ -1,0 +1,36 @@
+# StubHub
+
+> The official StubHub API connects your application with the world's largest ticket marketplace. Search and view events, list tickets for sale, and manage sales, over HTTPS from api.stubhub.net. Payloads are application/hal+json (HAL). OAuth2 is used for all authentication. Access is partner-gated (2022 v2 migration).
+
+## APIs
+- [Account API](https://developer.stubhub.com/api-reference/account): the authenticated user, addresses, payment methods
+- [Catalog API](https://developer.stubhub.com/api-reference/catalog): events, categories, venues (public)
+- [Inventory API](https://developer.stubhub.com/api-reference/inventory): seller listings, e-tickets, listing constraints, seller events, shipments
+- [Sales API](https://developer.stubhub.com/api-reference/sales): sales, e-tickets, payments, shipments, ticket holders
+- [Webhooks API](https://developer.stubhub.com/api-reference/webhooks): register webhooks for sale and listing events
+
+## Authentication
+- [Authentication overview](https://developer.stubhub.com/docs/authentication/): OAuth2 (Bearer)
+- [Application-only flow](https://developer.stubhub.com/docs/authentication/application-only-authentication-flow): client_credentials, public data
+- [User-login flow](https://developer.stubhub.com/docs/authentication/user-login-authentication-flow): authorization_code, user data
+- [Scopes](https://developer.stubhub.com/docs/authentication/scopes): read:events, read:payment, read:sales, write:sales, read:sellerlistings, write:sellerlistings, read:webhooks, write:webhooks, write:requestedevents
+- Token endpoint: https://account.stubhub.com/oauth2/token · Authorize: https://account.stubhub.com/authorize
+
+## Conventions
+- [Media type (HAL)](https://developer.stubhub.com/docs/overview/media-type)
+- [Pagination](https://developer.stubhub.com/docs/overview/pagination): page / page_size, 1-based, default 100
+- [Sorting](https://developer.stubhub.com/docs/overview/sorting): sort=field,-field
+- [Sparse fieldsets](https://developer.stubhub.com/docs/overview/sparse-fieldsets): fields / fields[TYPE]
+- [Localization](https://developer.stubhub.com/docs/overview/localization): Accept-Language
+- [Error responses](https://developer.stubhub.com/docs/overview/error-responses)
+- [Sandbox environment](https://developer.stubhub.com/docs/overview/sandbox-environment): https://sandbox.api.stubhub.net/
+
+## SDKs
+- GogoKit (.NET): https://www.nuget.org/packages/GogoKit
+- gogokit (Ruby): https://rubygems.org/gems/gogokit
+
+## Docs
+- [Developer portal](https://developer.stubhub.com/)
+- [Introduction](https://developer.stubhub.com/docs/overview/introduction)
+- [Creating a listing guide](https://developer.stubhub.com/docs/guides/creating-a-listing)
+- [Status](https://status.stubhub.com/)
