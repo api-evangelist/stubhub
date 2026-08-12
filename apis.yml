@@ -348,6 +348,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/stubhub-account-overlay.yaml
 - type: DomainSecurity
   url: security/stubhub-domain-security.yml
 - type: AgenticAccess
