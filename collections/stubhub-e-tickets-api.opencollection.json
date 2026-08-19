@@ -1,0 +1,535 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StubHub Account Addressess E-Tickets API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "E-Tickets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List e-ticket uploads for a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/eticketuploads",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List e-ticket uploads for a seller listing"
+        },
+        {
+          "info": {
+            "name": "Upload e-tickets for a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/eticketuploads",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Upload e-tickets for a seller listing"
+        },
+        {
+          "info": {
+            "name": "List e-ticket uploads for an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/events/:eventId/eticketuploads",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List e-ticket uploads for an event"
+        },
+        {
+          "info": {
+            "name": "Upload e-tickets for an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/events/:eventId/eticketuploads",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Upload e-tickets for an event"
+        },
+        {
+          "info": {
+            "name": "List e-tickets for a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/etickets",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List e-tickets for a seller listing"
+        },
+        {
+          "info": {
+            "name": "Upload and save e-tickets for a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/etickets",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Upload and save e-tickets for a seller listing"
+        },
+        {
+          "info": {
+            "name": "Mark-back e-tickets from a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/etickets",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Mark-back e-tickets from a seller listing"
+        },
+        {
+          "info": {
+            "name": "Delete e-ticket from a seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/etickets/:ETicketId",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ETicketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete e-ticket from a seller listing"
+        },
+        {
+          "info": {
+            "name": "Delete e-ticket from an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.stubhub.net/events/:eventId/etickets/:eticketId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete e-ticket from an event"
+        },
+        {
+          "info": {
+            "name": "Get marked back e-ticket file for seller listing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/sellerlistings/:listingId/markedbacketickets/:markedBackETicketId/document",
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "markedBackETicketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get marked back e-ticket file for seller listing"
+        },
+        {
+          "info": {
+            "name": "List e-ticket uploads for a sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/sales/:saleId/eticketuploads",
+            "params": [
+              {
+                "name": "saleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List e-ticket uploads for a sale"
+        },
+        {
+          "info": {
+            "name": "Upload e-tickets or proof of transfer for a sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/sales/:saleId/eticketuploads",
+            "params": [
+              {
+                "name": "saleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Upload e-tickets or proof of transfer for a sale"
+        },
+        {
+          "info": {
+            "name": "List e-tickets for a sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/sales/:saleId/etickets",
+            "params": [
+              {
+                "name": "saleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List e-tickets for a sale"
+        },
+        {
+          "info": {
+            "name": "Upload and save e-tickets for a sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/sales/:saleId/etickets",
+            "params": [
+              {
+                "name": "saleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Upload and save e-tickets for a sale"
+        },
+        {
+          "info": {
+            "name": "Delete e-ticket from a sale",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.stubhub.net/sales/:saleId/etickets/:eticketId",
+            "params": [
+              {
+                "name": "saleId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete e-ticket from a sale"
+        },
+        {
+          "info": {
+            "name": "Get e-ticket thumbnail file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/etickets/:eticketId/thumbnail",
+            "params": [
+              {
+                "name": "eticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get e-ticket thumbnail file"
+        },
+        {
+          "info": {
+            "name": "Get e-ticket upload file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/eticketuploads/:eticketUploadId/document",
+            "params": [
+              {
+                "name": "eticketUploadId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get e-ticket upload file"
+        },
+        {
+          "info": {
+            "name": "Get e-ticket file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/etickets/:eticketId/document",
+            "params": [
+              {
+                "name": "eticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get e-ticket file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,222 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StubHub Account Addressess Events API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/events",
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List events"
+        },
+        {
+          "info": {
+            "name": "List events by event ids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.stubhub.net/catalog/events",
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List events by event ids."
+        },
+        {
+          "info": {
+            "name": "List events by category id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/categories/:categoryId/events",
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List events by category id."
+        },
+        {
+          "info": {
+            "name": "Get an event on the StubHub platform using an identifier from an external platform.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/events/external_mappings/:platform/:externalEventId",
+            "params": [
+              {
+                "name": "platform",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalEventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get an event on the StubHub platform using an identifier from an external platform."
+        },
+        {
+          "info": {
+            "name": "Get an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/events/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get an event"
+        },
+        {
+          "info": {
+            "name": "Search events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/events/search",
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Search events"
+        },
+        {
+          "info": {
+            "name": "Get all events under a CategoryId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stubhub.net/catalog/categories/:categoryId/allevents",
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get all events under a CategoryId"
+        },
+        {
+          "info": {
+            "name": "Map request to StubHub Event, Venue and Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stubhub.net/catalog/mapevent",
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://account.stubhub.com/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Map request to StubHub Event, Venue and Category"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

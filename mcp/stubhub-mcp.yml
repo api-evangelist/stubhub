@@ -5,7 +5,8 @@ source: derived from openapi/ operations
 server:
   name: stubhub
   transport: http
-note: No official StubHub MCP server found; candidate tool list derived one-per-operation from the harvested OpenAPI.
+note: No official StubHub MCP server found; candidate tool list derived one-per-operation from the harvested
+  OpenAPI.
 tools:
 - name: Addressess_GetUserAddresses
   description: List addresses
@@ -250,3 +251,9 @@ tools:
 - name: Webhooks_PingWebhook
   description: Ping a webhook
   source_operation: openapi/stubhub-webhooks-openapi.yml#Webhooks_PingWebhook
+deployment:
+  mode: none
+  verified: derived
+  tools: 81
+  checked: '2026-08-12'
+  source: catalog MCP census
