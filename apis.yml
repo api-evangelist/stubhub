@@ -34,6 +34,17 @@ tags:
 - Company
 - Marketplaces
 - Tickets
+- Event
+- Ticketing
+- Live Events
+- Secondary Market
+- E-Commerce
+- Sports
+- Concerts
+tags_raw:
+- Company
+- Marketplaces
+- Tickets
 - Events
 - Ticketing
 - Live Events
@@ -108,6 +119,8 @@ apis:
   humanURL: https://developer.stubhub.com/api-reference/account
   baseURL: https://api.stubhub.net
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -148,6 +161,8 @@ apis:
   humanURL: https://developer.stubhub.com/api-reference/account
   baseURL: https://api.stubhub.net
   tags:
+  - Payment Methods
+  tags_raw:
   - PaymentMethods
   properties:
   - type: OpenAPI
@@ -328,6 +343,8 @@ apis:
   humanURL: https://developer.stubhub.com/api-reference/account
   baseURL: https://api.stubhub.net
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
