@@ -173,7 +173,7 @@ apis:
   humanURL: https://developer.stubhub.com/api-reference/account
   baseURL: https://api.stubhub.net
   tags:
-  - PaymentMethods
+  - Payment Methods
   tags_raw:
   - PaymentMethods
   properties:
