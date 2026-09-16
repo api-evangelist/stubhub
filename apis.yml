@@ -167,28 +167,6 @@ apis:
     url: https://developer.stubhub.com/api-reference/sales
   - type: APIReference
     url: https://developer.stubhub.com/api-reference/webhooks
-- aid: stubhub:stubhub-paymentmethods-api
-  name: StubHub PaymentMethods API
-  description: The PaymentMethods API from StubHub — 3 operation(s) for paymentmethods.
-  humanURL: https://developer.stubhub.com/api-reference/account
-  baseURL: https://api.stubhub.net
-  tags:
-  - Payment Methods
-  tags_raw:
-  - PaymentMethods
-  properties:
-  - type: OpenAPI
-    url: openapi/stubhub-paymentmethods-api-openapi.yml
-  - type: APIReference
-    url: https://developer.stubhub.com/api-reference/account
-  - type: APIReference
-    url: https://developer.stubhub.com/api-reference/catalog
-  - type: APIReference
-    url: https://developer.stubhub.com/api-reference/inventory
-  - type: APIReference
-    url: https://developer.stubhub.com/api-reference/sales
-  - type: APIReference
-    url: https://developer.stubhub.com/api-reference/webhooks
 - aid: stubhub:stubhub-payments-api
   name: StubHub Payments API
   description: The Payments API from StubHub — 3 operation(s) for payments.
@@ -361,6 +339,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/stubhub-webhooks-api-openapi.yml
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/account
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/catalog
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/inventory
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/sales
+  - type: APIReference
+    url: https://developer.stubhub.com/api-reference/webhooks
+- aid: stubhub:stubhub-payment-methods-api
+  name: StubHub Payment Methods API
+  description: The Payment Methods API from StubHub — 3 operation(s) for payment methods.
+  humanURL: https://developer.stubhub.com/api-reference/account
+  baseURL: https://api.stubhub.net
+  tags:
+  - Payment Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/stubhub-payment-methods-api-openapi.yml
   - type: APIReference
     url: https://developer.stubhub.com/api-reference/account
   - type: APIReference
