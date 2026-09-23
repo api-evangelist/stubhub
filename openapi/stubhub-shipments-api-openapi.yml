@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StubHub Account Addressess Shipments API
+  title: Stubhub Shipments API
   version: v2
-  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
   contact:
     name: StubHub API Support
     email: api.support@stubhub.com
     url: https://developer.stubhub.com/
   x-media-type: application/hal+json
+  description: 'Operations tagged Shipments across 2 of this provider''s published API definitions: stubhub-inventory-openapi.yml, stubhub-sales-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.stubhub.net
   description: Production
@@ -59,6 +59,11 @@ paths:
       security:
       - oauth2:
         - read:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sellerlistings/{listingId}/shipments:
     get:
       operationId: Shipments_GetListingShipments
@@ -130,6 +135,11 @@ paths:
       security:
       - oauth2:
         - write:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sellerlistings/{listingId}/shipments/{shipmentId}:
     patch:
       operationId: Shipments_PatchListingShipment
@@ -171,6 +181,11 @@ paths:
       security:
       - oauth2:
         - write:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/shipments/{shipmentId}/label:
     get:
       operationId: Shipments_GetSaleShippingLabel
@@ -212,6 +227,11 @@ paths:
       security:
       - oauth2:
         - read:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/shipments:
     get:
       operationId: Shipments_GetSaleShipments
@@ -283,6 +303,11 @@ paths:
       security:
       - oauth2:
         - write:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/shipments/{shipmentId}:
     patch:
       operationId: Shipments_PatchSaleShipment
@@ -324,6 +349,11 @@ paths:
       security:
       - oauth2:
         - write:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
 components:
   securitySchemes:
     oauth2:
@@ -348,3 +378,6 @@ components:
             read:webhooks: Read access to the user's webhooks.
             write:webhooks: Write access to the user's webhooks.
             write:requestedevents: Write access to the user's requested events.
+x-refined-from:
+- stubhub-inventory-openapi.yml
+- stubhub-sales-openapi.yml

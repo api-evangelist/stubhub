@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StubHub Account Addressess Events API
+  title: StubHub Catalog Events API
   version: v2
-  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
+  description: StubHub Catalog API — search and read the public catalog of events, categories, and venues.
   contact:
     name: StubHub API Support
     email: api.support@stubhub.com
@@ -50,7 +50,7 @@ paths:
         - read:events
     put:
       operationId: Events_GetEventsByEventIds
-      summary: List events by event ids.
+      summary: List events by event ids
       tags:
       - Events
       responses:
@@ -80,7 +80,7 @@ paths:
   /catalog/categories/{categoryId}/events:
     get:
       operationId: Events_GetEventsByCategoryId
-      summary: List events by category id.
+      summary: List events by category id
       tags:
       - Events
       responses:
@@ -116,7 +116,7 @@ paths:
   /catalog/events/external_mappings/{platform}/{externalEventId}:
     get:
       operationId: Events_GetEventByExternalEventId
-      summary: Get an event on the StubHub platform using an identifier from an external platform.
+      summary: Get an event on the StubHub platform using an identifier from an external…
       tags:
       - Events
       responses:

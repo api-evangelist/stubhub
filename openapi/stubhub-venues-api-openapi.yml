@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StubHub Account Addressess Venues API
+  title: StubHub Catalog Venues API
   version: v2
-  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
+  description: StubHub Catalog API — search and read the public catalog of events, categories, and venues.
   contact:
     name: StubHub API Support
     email: api.support@stubhub.com

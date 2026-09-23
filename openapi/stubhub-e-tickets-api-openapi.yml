@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StubHub Account Addressess E-Tickets API
+  title: Stubhub E Tickets API
   version: v2
-  description: StubHub Account API — manage the authenticated user, their addresses, and payment methods.
   contact:
     name: StubHub API Support
     email: api.support@stubhub.com
     url: https://developer.stubhub.com/
   x-media-type: application/hal+json
+  description: 'Operations tagged E-Tickets across 2 of this provider''s published API definitions: stubhub-inventory-openapi.yml, stubhub-sales-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.stubhub.net
   description: Production
@@ -16,14 +16,14 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: E-Tickets
+- name: E Tickets
 paths:
   /sellerlistings/{listingId}/eticketuploads:
     post:
       operationId: ETicket_UploadListingETicket
       summary: Upload e-tickets for a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '201':
           description: Success. Response is `application/hal+json`.
@@ -58,7 +58,7 @@ paths:
       operationId: ETicket_GetListingETicketUploads
       summary: List e-ticket uploads for a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -89,12 +89,17 @@ paths:
       security:
       - oauth2:
         - read:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /events/{eventId}/eticketuploads:
     post:
       operationId: ETicket_UploadEventETicket
       summary: Upload e-tickets for an event
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '201':
           description: Success. Response is `application/hal+json`.
@@ -129,7 +134,7 @@ paths:
       operationId: ETicket_GetEventETicketUploads
       summary: List e-ticket uploads for an event
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -160,12 +165,17 @@ paths:
       security:
       - oauth2:
         - read:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sellerlistings/{listingId}/etickets:
     get:
       operationId: ETicket_GetListingETickets
       summary: List e-tickets for a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -200,7 +210,7 @@ paths:
       operationId: ETicket_MarkBackETickets
       summary: Mark-back e-tickets from a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -235,7 +245,7 @@ paths:
       operationId: ETicket_PostListingETickets
       summary: Upload and save e-tickets for a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '201':
           description: Success. Response is `application/hal+json`.
@@ -266,12 +276,17 @@ paths:
       security:
       - oauth2:
         - write:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sellerlistings/{listingId}/etickets/{ETicketId}:
     delete:
       operationId: ETicket_DeleteListingETicket
       summary: Delete e-ticket from a seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '204':
           description: Deleted.
@@ -305,12 +320,17 @@ paths:
       security:
       - oauth2:
         - write:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /events/{eventId}/etickets/{eticketId}:
     delete:
       operationId: ETicket_DeleteEventETicket
       summary: Delete e-ticket from an event
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '204':
           description: Deleted.
@@ -344,12 +364,17 @@ paths:
       security:
       - oauth2:
         - write:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sellerlistings/{listingId}/markedbacketickets/{markedBackETicketId}/document:
     get:
       operationId: ETicketDocument_GetMarkedBackETicketDocument
       summary: Get marked back e-ticket file for seller listing
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -385,12 +410,17 @@ paths:
       security:
       - oauth2:
         - read:sellerlistings
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/eticketuploads:
     post:
       operationId: ETicket_UploadSaleETicket
       summary: Upload e-tickets or proof of transfer for a sale
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '201':
           description: Success. Response is `application/hal+json`.
@@ -425,7 +455,7 @@ paths:
       operationId: ETicket_GetSaleETicketUploads
       summary: List e-ticket uploads for a sale
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -456,12 +486,17 @@ paths:
       security:
       - oauth2:
         - read:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/etickets:
     get:
       operationId: ETicket_GetSaleETickets
       summary: List e-tickets for a sale
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -496,7 +531,7 @@ paths:
       operationId: ETicket_PostSaleETickets
       summary: Upload and save e-tickets for a sale
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '201':
           description: Success. Response is `application/hal+json`.
@@ -527,12 +562,17 @@ paths:
       security:
       - oauth2:
         - write:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /sales/{saleId}/etickets/{eticketId}:
     delete:
       operationId: ETicket_DeleteSaleETicket
       summary: Delete e-ticket from a sale
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '204':
           description: Deleted.
@@ -566,12 +606,17 @@ paths:
       security:
       - oauth2:
         - write:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /etickets/{eticketId}/thumbnail:
     get:
       operationId: ETicketDocument_GetETicketThumbnail
       summary: Get e-ticket thumbnail file
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -602,12 +647,17 @@ paths:
       security:
       - oauth2:
         - read:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /eticketuploads/{eticketUploadId}/document:
     get:
       operationId: ETicketDocument_GetETicketUploadDocument
       summary: Get e-ticket upload file
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -638,12 +688,17 @@ paths:
       security:
       - oauth2:
         - read:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
   /etickets/{eticketId}/document:
     get:
       operationId: ETicketDocument_GetETicketDocument
       summary: Get e-ticket file
       tags:
-      - E-Tickets
+      - E Tickets
       responses:
         '200':
           description: Success. Response is `application/hal+json`.
@@ -674,6 +729,11 @@ paths:
       security:
       - oauth2:
         - read:sales
+    servers:
+    - url: https://api.stubhub.net
+      description: Production
+    - url: https://sandbox.api.stubhub.net
+      description: Sandbox
 components:
   securitySchemes:
     oauth2:
@@ -698,3 +758,6 @@ components:
             read:webhooks: Read access to the user's webhooks.
             write:webhooks: Write access to the user's webhooks.
             write:requestedevents: Write access to the user's requested events.
+x-refined-from:
+- stubhub-inventory-openapi.yml
+- stubhub-sales-openapi.yml
