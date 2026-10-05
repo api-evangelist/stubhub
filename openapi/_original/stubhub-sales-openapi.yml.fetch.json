@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/viagogo/stubhub-api-docs/HEAD/static/openapi/sales.json",
+ "requested_url": "https://raw.githubusercontent.com/viagogo/stubhub-api-docs/HEAD/static/openapi/sales.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 121273,
+ "sha256": "b2477f1e3dab4ea551746779d75d67f43aacbc5de143a212316bb34745ee35fc",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.913), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
